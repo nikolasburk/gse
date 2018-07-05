@@ -173,15 +173,48 @@ query {
 }
 ```
 
-<Details>
-<Summary>Optional: Best practices for structuring your GraphQL server & Prisma projects </Summary>
+## Step 7: [OPTIONAL] Best practices for structuring your GraphQL server & Prisma projects
 
-asdasdasd
-asdas
-asdasd
+### File structure
 
-- asd
-- asd
-- asd
+Here are some hints for structuring your project:
 
-</Details>
+- Include the directory that contains the files for your Prisma service inside the project directory for the GraphQL server.
+- The `prisma.graphql` should be available in the directory where the source code for your GraphQL server is located. As it's auto-generated, it is helpful to put it into a dedicated dirctory, e.g. called `generated`.
+- Use `graphql-config` to enable the GraphQL Playground to show the two GraphQL APIs (Prisma and application server) side-by-side.
+
+Here's how your project structure will look like if you follow above:
+
+```
+.
+├── .graphqlconfig
+├── hello-world
+│   ├── datamodel.graphql
+│   └── prisma.yml
+├── index.js
+├── package.json
+├── schema.graphql
+├── src
+│   ├── generated
+│   │   └── prisma.graphql
+│   ├── index.js
+│   └── schema.graphql
+└── yarn.lock
+```
+
+### GraphQL Config
+
+Your `.graphqlconfig.yml` file needs to define both GraphQL _projects_ you're working with:
+
+```yml
+projects:
+  app:
+    schemaPath: src/schema.graphql
+    extensions:
+      endpoints:
+        default: http://localhost:4000
+  hello-world:
+    schemaPath: src/generated/prisma.graphql
+    extensions:
+      prisma: hello-world/prisma.yml
+```
