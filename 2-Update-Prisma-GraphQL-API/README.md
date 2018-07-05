@@ -8,7 +8,7 @@ Update the code in **datamodel.graphql** as follows:
 type User {
   id: ID! @unique
   name: String!
-  posts: [Post!]! # does this work or requires `-f` when deploying?
+  posts: [Post!]!
 }
 
 type Post {

@@ -7,7 +7,7 @@ mkdir myapp
 cd myapp
 touch index.js
 yarn init -y
-yarn add node-fetch prisma-binding
+yarn add node-fetch prisma-binding graphql
 ```
 
 ## Step 2: Consume Prisma GraphQL API via plain HTTP using `fetch`
@@ -53,12 +53,14 @@ node src/index.js
 
 ## Step 3: Consume Prisma GraphQL API via Prisma bindings
 
-Prisma bindings provide a convenient way to interact with a Prisma GraphQL API directly from code. Instead of manually constructing HTTP requests and sending them to Prisma, you can invoke the auto-generated binding functions to send queries, mutations and subscriptions.
+Prisma bindings provide a convenient way to interact with a Prisma GraphQL API directly from code. Instead of manually constructing HTTP requests and sending them to Prisma, you can save writing boilerplate code by invoking the auto-generated binding functions to send queries, mutations and subscriptions.
 
 ### Step 3.1: Download Prisma's GraphQL schema
 
+Like in **index.js** before, you need to replace `__YOUR_PRISMA_ENDPOINT__` with the `endpoint` from your `prisma.yml` in this terminal command:
+
 ```bash
-npx graphql get-schema __YOUR_PRISMA_ENDPOINT__ -o prisma.graphql
+npx graphql get-schema --endpoint __YOUR_PRISMA_ENDPOINT__  --output prisma.graphql --no-all
 ```
 
 ### Step 3.2: Update the Node script to use Prisma bindings
@@ -74,21 +76,32 @@ const prisma = new Prisma({
 })
 
 // send `users` query
-prisma.users({}, `{ id name }`)
+prisma.query.users({}, `{ id name }`)
   .then(users => console.log(users))
-  // send `createUser` mutation
-  .then(() => prisma.createUser({
-    data: { name: `Sarah` }
-  }, `{ id name }`))
+  .then(() =>
+    // send `createUser` mutation
+    prisma.mutation.createUser(
+      {
+        data: { name: `Sarah` },
+      },
+      `{ id name }`,
+    ),
+  )
   .then(newUser => {
     console.log(newUser)
     return newUser
   })
-  // send `user` query
-  .then(newUser => prisma.user({
-    where: { id: newUser.id }
-  }, `{ id name }`))
+  .then(newUser =>
+    // send `user` query
+    prisma.query.user(
+      {
+        where: { id: newUser.id },
+      },
+      `{ name }`,
+    ),
+  )
   .then(user => console.log(user))
+
 ```
 
 ### Step 3.3: Execute the Node script
