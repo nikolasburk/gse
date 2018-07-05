@@ -14,7 +14,8 @@ type User {
 type Post {
   id: ID! @unique
   title: String!
-  author: User!
+  published: Boolean! @default(value: "false")
+  author: User
 }
 ```
 
@@ -45,6 +46,7 @@ mutation {
     }
   }) {
     id
+    published
     author {
       id
     }
@@ -62,6 +64,7 @@ query {
     posts {
       id
       title
+      published
     }
   }
 }
