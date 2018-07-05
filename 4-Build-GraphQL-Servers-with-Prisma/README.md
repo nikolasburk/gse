@@ -1,4 +1,4 @@
-# Build GrapgQL Servers with Prisma
+# Build GraphQL Servers with Prisma
 
 ## Step 1: Update Node.JS project
 
