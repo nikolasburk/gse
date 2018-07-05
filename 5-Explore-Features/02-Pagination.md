@@ -27,6 +27,15 @@ type Post {
 prisma playground
 ```
 
-## Step 3: Explore filter API
+## Step 3: Explore pagination API
 
-TBD
+**Get the `User`s at indices 2-4 (when starting to count at 0)**:
+
+```graphql
+query {
+  users(skip: 2 first: 3) {
+    id
+    name
+  }
+}
+```

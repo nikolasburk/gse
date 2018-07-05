@@ -29,7 +29,7 @@ prisma playground
 
 ## Step 3: Explore filter API
 
-**Query all `User`s that have the letter `S` in their `name`**:
+**Filter for all `User`s that have the letter `S` in their `name`**:
 
 ```graphql
 query {
@@ -42,7 +42,7 @@ query {
 }
 ```
 
-**Query all `User`s that either have the letter `S` or the letter `P` in their `name`**:
+**Filter for all `User`s that either have the letter `S` _or_ the letter `P` in their `name`**:
 
 ```graphql
 query {
@@ -58,7 +58,7 @@ query {
 }
 ```
 
-**Query all `User`s but only include those `posts` where the `title` is either of three srtrings: `GraphQL`, `REST`, `API`**:
+**Filter for all `User`s but only include those `posts` where the `title` is either of three srtrings: `GraphQL`, `REST`, `API`**:
 
 ```graphql
 query {
@@ -75,7 +75,7 @@ query {
 }
 ```
 
-**Query all `Post`s written by `User` with `id` `cjj8q47xvb0nl0b82j0qy4nii`**"
+**Query all `Post`s written by `User` with `id` `cjj8q47xvb0nl0b82j0qy4nii`**:
 
 ```graphql
 query {
@@ -85,6 +85,30 @@ query {
     }
   }) {
     id
+  }
+}
+```
+
+## Step 4: Explore ordering API
+
+**Sort `Post`s alphabetically descending by their `title`**:
+
+```graphql
+query {
+  posts(orderBy: title_DESC) {
+    id
+    title
+  }
+}
+```
+
+**Sort `User`s chronologically ascending by when they were _created_**:
+
+```graphql
+query {
+  users(orderBy: createdAt_ASC) {
+    id
+    name
   }
 }
 ```
