@@ -173,7 +173,7 @@ query {
 }
 ```
 
-## Step 7: [OPTIONAL] Best practices for structuring your GraphQL server & Prisma projects
+## Step 7 [OPTIONAL]: Best practices for structuring your GraphQL server & Prisma projects
 
 ### File structure
 
