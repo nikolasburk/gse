@@ -177,7 +177,7 @@ query {
 
 <Summary>
 
-#### OPTIONAL: Best practices for structuring your project
+**OPTIONAL: Best practices for structuring your project**
 
 </Summary>
 
