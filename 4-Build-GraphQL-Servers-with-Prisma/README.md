@@ -175,11 +175,7 @@ query {
 
 <Details>
 
-<Summary>
-
-**OPTIONAL: Best practices for structuring your project**
-
-</Summary>
+<Summary>**OPTIONAL: Best practices for structuring your project**</Summary>
 
 ## OPTIONAL: Best practices for structuring your project
 
