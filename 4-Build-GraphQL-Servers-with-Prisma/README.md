@@ -173,7 +173,13 @@ query {
 }
 ```
 
+<Details>
+
+<Summary>
+
 ## Step 7 [OPTIONAL]: Best practices for structuring your GraphQL server & Prisma projects
+
+</Summary>
 
 ### File structure
 
@@ -218,3 +224,5 @@ projects:
     extensions:
       prisma: hello-world/prisma.yml
 ```
+
+</Details>
