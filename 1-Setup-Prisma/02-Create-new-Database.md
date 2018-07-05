@@ -1,4 +1,4 @@
-# Try out Prisma in 30 Seconds
+# Create new database
 
 ## Step 1: Install the Prisma CLI on your machine
 
@@ -6,7 +6,11 @@
 npm install -g prisma
 ```
 
-## Step 2: Create your Prisma service
+## Step 2: Install Docker on your machine
+
+To use Prisma locally, you need to have [Docker](https://www.docker.com) installed on your machine. If you don't have Docker yet, you can download the Docker Community Edition for your operating system [here](https://www.docker.com/community-edition).
+
+## Step 3: Create your Prisma service
 
 ```bash
 mkdir hello-world
@@ -16,25 +20,28 @@ prisma init
 
 After running `prisma init`, the Prisma CLI prompts you to select _where_ you want to deploy your Prisma service:
 
-1. Select the **Demo server**
-1. When your browser opens, register with Prisma Cloud (this is needed because that's where the Demo servers are hosted)
-1. Go back to your terminal
-1. Select a _region_
-1. Select the suggested values fro _service_ and _stage_ by hitting **Enter** twice
+1. Select **Create new database**
+1. Select either **MySQL** or **PostgreSQL**
 
-## Step 3: Deploy your Prisma service
+## Step 4: Set up local Prisma server
+
+```bash
+docker-compose up -d
+```
+
+## Step 5: Deploy your Prisma service
 
 ```bash
 prisma deploy
 ```
 
-## Step 4: Open a GraphQL Playground
+## Step 6: Open a GraphQL Playground
 
 ```bash
 prisma playground
 ```
 
-## Step 5: Explore the service's CRUD GraphQL API
+## Step 7: Explore the service's CRUD GraphQL API
 
 **Create a new `User`**:
 
@@ -64,7 +71,7 @@ query {
 **Update a `User`'s `name`**:
 
 ```graphql
-mutation {
+query {
   updateUser(
     where: { id: "__USER_ID__" },
     data: { name: "Sarah" }
@@ -78,7 +85,7 @@ mutation {
 **Delete a `User`**:
 
 ```graphql
-mutation {
+query {
   deleteUser(where: {
     id: "__USER_ID__"
   }) {
