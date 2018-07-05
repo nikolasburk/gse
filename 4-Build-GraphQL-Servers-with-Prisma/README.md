@@ -22,7 +22,7 @@ type Query {
 
 type Mutation {
   createUser(name: String!): User
-  createDraft(title: String!, content: String!, userId: ID!): Post
+  createDraft(title: String!, userId: ID!): Post
   publish(postId: ID!): Post
 }
 ```
@@ -38,7 +38,7 @@ const { Prisma } = require('prisma-binding')
 const resolvers = {
   Query: {
     publishedPosts(parent, args, ctx, info) {
-      return ctx.db.query.posts({ where: { isPublished: true } }, info)
+      return ctx.db.query.posts({ where: { published: true } }, info)
     },
     post(parent, args, ctx, info) {
       return ctx.db.query.post({ where: { id: args.postId } }, info)
@@ -60,7 +60,6 @@ const resolvers = {
         {
           data: {
             title: args.title,
-            text: args.text,
             author: {
               connect: { id: args.userId }
             }
@@ -73,7 +72,7 @@ const resolvers = {
       return ctx.db.mutation.updatePost(
         {
           where: { id: args.postId },
-          data: { isPublished: true },
+          data: { published: true },
         },
         info
       )
@@ -110,7 +109,11 @@ server.start(() => console.log('Server is running on http://localhost:4000'))
 node src/index.js
 ```
 
-## Step 5: Explore the API of the application server
+## Step 5: Open a GraphQL Playground
+
+Navigate to [`http://localhost:4000`](http://localhost:4000) in your browser.
+
+## Step 6: Explore the API of the application server
 
 **Create a new `User`**:
 
@@ -128,14 +131,10 @@ mutation {
 
 ```graphql
 mutation {
-  createDraft(data: {
+  createDraft(
     title: "GraphQL is great"
-    author: {
-      connect: {
-        name: "__USER_ID__"
-      }
-    }
-  }) {
+    userId: "__USER_ID__"
+  ) {
     id
     published
     author {
@@ -173,3 +172,16 @@ query {
   }
 }
 ```
+
+<Details>
+<Summary>Optional: Best practices for structuring your GraphQL server & Prisma projects </Summary>
+
+asdasdasd
+asdas
+asdasd
+
+- asd
+- asd
+- asd
+
+</Details>
