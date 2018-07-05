@@ -177,9 +177,11 @@ query {
 
 <Summary>
 
-## Step 7 [OPTIONAL]: Best practices for structuring your project
+#### OPTIONAL: Best practices for structuring your project
 
 </Summary>
+
+## OPTIONAL: Best practices for structuring your project
 
 ### File structure
 
