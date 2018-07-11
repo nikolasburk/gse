@@ -1,4 +1,4 @@
-# Create new database
+# Use existing database
 
 ## Step 1: Install the Prisma CLI on your machine
 
@@ -48,8 +48,7 @@ services:
       MYSQL_ROOT_PASSWORD: prisma
     volumes:
       - mysql:/var/lib/mysql
-volumes:
-  mysql:
+
 ```
 
 ### 3.3: Start Prisma server and database
