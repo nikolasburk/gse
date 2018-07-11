@@ -53,7 +53,7 @@ volumes:
 ```
 
 <Details>
-  <Summary>See for Postgres</Summary>
+  <Summary>See `docker-compose.yml` for Postgres</Summary>
 
 Here is what the `docker-compose.yml` looks like for Postgres:
 
