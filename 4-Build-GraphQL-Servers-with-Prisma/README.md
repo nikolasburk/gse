@@ -106,7 +106,7 @@ server.start(() => console.log('Server is running on http://localhost:4000'))
 ## Step 4: Start the server
 
 ```bash
-node src/index.js
+node index.js
 ```
 
 ## Step 5: Open a GraphQL Playground

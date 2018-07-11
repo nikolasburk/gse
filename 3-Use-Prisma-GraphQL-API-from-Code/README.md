@@ -48,7 +48,7 @@ fetch(endpoint, {
 ## Step 2.2: Execute the Node script
 
 ```bash
-node src/index.js
+node index.js
 ```
 
 ## Step 3: Consume Prisma GraphQL API via Prisma bindings
@@ -106,7 +106,7 @@ prisma.query.users({}, `{ id name }`)
 ### Step 3.3: Execute the Node script
 
 ```bash
-node src/index.js
+node index.js
 ```
 
 ## Next
