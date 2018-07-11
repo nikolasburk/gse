@@ -10,7 +10,7 @@ Here is the contents of **datamodel.graphql** your service needs for the followi
 type User {
   id: ID! @unique
   name: String!
-  posts: [Post!]! # does this work or requires `-f` when deploying?
+  posts: [Post!]!
 }
 
 type Post {

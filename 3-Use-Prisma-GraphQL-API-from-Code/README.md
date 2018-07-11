@@ -101,7 +101,6 @@ prisma.query.users({}, `{ id name }`)
     ),
   )
   .then(user => console.log(user))
-
 ```
 
 ### Step 3.3: Execute the Node script

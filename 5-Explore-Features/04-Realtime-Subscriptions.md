@@ -27,6 +27,6 @@ type Post {
 prisma playground
 ```
 
-## Step 3: Explore filter API
+## Step 3: Explore subscription API
 
 TBD

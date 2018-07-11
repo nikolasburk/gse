@@ -10,7 +10,7 @@ Here is the contents of **datamodel.graphql** your service needs for the followi
 type User {
   id: ID! @unique
   name: String!
-  posts: [Post!]! # does this work or requires `-f` when deploying?
+  posts: [Post!]!
 }
 
 type Post {
@@ -27,6 +27,41 @@ type Post {
 prisma playground
 ```
 
-## Step 3: Explore filter API
+## Step 3: Explore nested mutations API
 
-TBD
+**Create a new `Post` and create a new `User` that is set as the `author` of it**:
+
+```graphql
+mutation {
+  createPost(data: {
+    title: "I love GraphQL"
+    author: {
+      connect: {
+        name: "Karl"
+      }
+    }
+  }) {
+    id
+    author {
+      id
+    }
+  }
+}
+```
+
+**Create a new `Post` and set an existing `User` that is set as the `author` of it**:
+
+```graphql
+mutation {
+  createPost(data: {
+    title: "I love GraphQL"
+    author: {
+      connect: {
+        id: "__USER_ID__"
+      }
+    }
+  }) {
+    id
+  }
+}
+```
