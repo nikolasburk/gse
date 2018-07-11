@@ -8,7 +8,5 @@ You can get started with Prisma either using a _Demo server_ hosted in [Prisma C
 
 ## Local setup (Docker)
 
-- Create new database
-- Use existing database
-
-> **Note**: These two options are coming soon.
+- [Create new database](02-Create-new-Database.md)
+- Use existing database (_coming soon_)
