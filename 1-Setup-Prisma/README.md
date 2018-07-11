@@ -2,9 +2,9 @@
 
 You can get started with Prisma either using a _Demo server_ hosted in [Prisma Cloud](https://www.prisma.io/cloud/) or with your own local Prisma server (requires [Docker](https://www.docker.com)). We recommend using a Demo server if you're just getting started and want to explore Prisma's capabilities.
 
-## Use Prisma Demo server (beginner's choice)
+## Use Prisma Demo server
 
-- [Try out Prisma in 30 seconds](01-Try-out-Prisma-in-30-seconds.md)
+- [Try out Prisma in 30 seconds](01-Try-out-Prisma-in-30-seconds.md) (Beginner's choice)
 
 ## Local setup (requires Docker)
 
