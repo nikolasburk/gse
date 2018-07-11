@@ -5,7 +5,7 @@
 1. Use Prisma GraphQL API from Code
 1. Build GraphQL Servers with Prisma
 
- Click [**here**](./1-Setup-Prisma/README.md)) to get started!
+ Click [**here**](./1-Setup-Prisma/README.md) to get started!
 
 <!-- 1. [Setup Prisma](./1-Setup-Prisma/README.md)
 1. [Update Prisma GraphQL API](2-Update-Prisma-GraphQL-API/README.md)
