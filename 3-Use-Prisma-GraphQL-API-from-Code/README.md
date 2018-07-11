@@ -108,3 +108,7 @@ prisma.query.users({}, `{ id name }`)
 ```bash
 node src/index.js
 ```
+
+## Next
+
+[**Build GraphQL Servers with Prisma**](../4-Build-GraphQL-Servers-with-Prisma/README.md)

@@ -88,6 +88,6 @@ mutation {
 }
 ```
 
-## Next Step
+## Next
 
 [**Update Prisma GraphQL API**](../2-Update-Prisma-GraphQL-API/README.md)

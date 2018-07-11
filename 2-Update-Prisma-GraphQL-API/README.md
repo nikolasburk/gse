@@ -69,3 +69,7 @@ query {
   }
 }
 ```
+
+## Next
+
+[**Use Prisma GraphQL API from Code**](../3-Use-Prisma-GraphQL-API-from-Code/README.md)
