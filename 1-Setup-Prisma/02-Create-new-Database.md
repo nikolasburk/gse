@@ -1,4 +1,4 @@
-# Create new database
+# Create new Database
 
 ## Step 1: Install the Prisma CLI on your machine
 
@@ -68,8 +68,6 @@ services:
     environment:
       PRISMA_CONFIG: |
         port: 4466
-        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
-        # managementApiSecret: my-secret
         databases:
           default:
             connector: postgres
@@ -175,3 +173,7 @@ query {
   }
 }
 ```
+
+## Next
+
+[**Update Prisma GraphQL API**](../2-Update-Prisma-GraphQL-API/README.md)
